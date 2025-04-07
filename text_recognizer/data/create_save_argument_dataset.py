@@ -1,6 +1,5 @@
 import sys
-sys.path.append("D:/RL_Finance/MLops/fslab/lab06")
-
+sys.path.append("D:/RL_Finance/Image_to_Text")
 
 
 import text_recognizer.metadata.iam as metadata_iam

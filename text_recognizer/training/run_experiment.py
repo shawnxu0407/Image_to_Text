@@ -12,8 +12,8 @@ from text_recognizer.data.create_save_argument_dataset import (DL_DATA_DIRNAME,
 
 import text_recognizer.metadata.iam_paragraphs as metadata_iam_paragraphs
 
-from lora_models import build_lora_model
-from data_module import ArgumentDataModule
+from text_recognizer.models.lora_models import build_lora_model
+from text_recognizer.data.data_module import ArgumentDataModule
 from lightning.pytorch.profilers import PyTorchProfiler, PassThroughProfiler
 from torch.profiler import ProfilerActivity
 

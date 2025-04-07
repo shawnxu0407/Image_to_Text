@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from peft import LoraConfig, get_peft_model
-from text_recognizer.models.resnet_transformer import ResnetTransformer
-from lightning_transformer import TransformerLitModel
+from .resnet_transformer import ResnetTransformer
+from text_recognizer.ligntning_wrap.lightning_transformer import TransformerLitModel
 
 
 def build_lora_model(data_config, checkpoint_path: str, device: str = "cuda") -> nn.Module:
@@ -57,9 +57,3 @@ def _default_args():
         tf_dropout=TF_DROPOUT,
         tf_layers=TF_LAYERS,
     )
-
-
-def get_loss_and_optimizer(model, data_config, lr=1e-4):
-    criterion = nn.CrossEntropyLoss(ignore_index=data_config["inverse_mapping"]["<P>"])
-    optimizer = optim.AdamW(model.parameters(), lr=lr)
-    return criterion, optimizer
