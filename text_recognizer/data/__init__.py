@@ -12,6 +12,5 @@ hierarchy.
 from .util import BaseDataset
 from .base_data_module import BaseDataModule
 
-from .iam_lines import IAMLines
 
 from .iam import IAM
