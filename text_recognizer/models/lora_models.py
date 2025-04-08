@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from peft import LoraConfig, get_peft_model
 from .resnet_transformer import ResnetTransformer
-from text_recognizer.ligntning_wrap.lightning_transformer import TransformerLitModel
+from text_recognizer.lightning_wrap.lightning_transformer import TransformerLitModel
 
 
 def build_lora_model(data_config, checkpoint_path: str, device: str = "cuda") -> nn.Module:

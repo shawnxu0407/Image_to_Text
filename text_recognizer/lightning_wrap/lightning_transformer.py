@@ -2,8 +2,8 @@ from typing import List, Sequence
 
 import torch
 
-from text_recognizer.lit_models.base import BaseImageToTextLitModel
-from text_recognizer.lit_models.util import replace_after
+from text_recognizer.lightning_wrap.base import BaseImageToTextLitModel
+from text_recognizer.lightning_wrap.util import replace_after
 
 
 class TransformerLitModel(BaseImageToTextLitModel):

@@ -25,8 +25,6 @@ DL_DATA_DIRNAME = metadata_iam.DL_DATA_DIRNAME
 mapping = metadata_iam_paragraphs.MAPPING
 inverse_mapping = {v: k for k, v in enumerate(mapping)}
 
-iam=IAM()
-
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Generate training dataset for ResNet-Transformer.")
