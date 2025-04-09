@@ -43,6 +43,8 @@ def _setup_parser():
     parser.add_argument('--output_dims', type=int, default=metadata_iam_paragraphs.OUTPUT_DIMS, help='output tokens dimensions')
     parser.add_argument('--checkpoint_path', type=str, default=r"D:\RL_Finance\MLops\fslab\lab07\text_recognizer\artifacts\paragraph-text-recognizer\model.pt", help='pre-trained model checkpoint')
     parser.add_argument('--lr', type=float, default=0.0001, help='learning rate')
+    parser.add_argument('--dataset_len', type=int, default=1000, help='learning rate')
+
 
 
     # Basic arguments
@@ -106,7 +108,7 @@ def main():
 
 
     # Setup the data and model from parsed args
-    data = ArgumentDataModule(data_dir=args.data_dir, batch_size=args.batch_size, val_split=0.2, num_workers=4)
+    data = ArgumentDataModule(data_dir=args.data_dir, dataset_len=args.dataset_len, batch_size=args.batch_size, val_split=0.2, num_workers=4)
     
     # Define data config (typically would come from your dataset's configuration)
 

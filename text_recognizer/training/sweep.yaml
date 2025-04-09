@@ -1,0 +1,25 @@
+# Define the script and command to run
+program: training/run_experiment.py
+command:  
+    - ${env}
+    - ${interpreter}
+    - ${program}
+    - "--wandb"
+    - "--max_epochs"
+    - "5"   # You can change this later to be a hyperparameter in the sweep
+    - ${args}  # Sweep parameters will be passed here
+
+# Define the sweep method and optimization goal
+method: grid  # Can also be "grid" or "bayes"
+
+metric:
+    name: train/loss  # Adjust this to the metric you want to optimize for
+    goal: minimize
+
+# Define hyperparameters to search
+parameters:  
+    batch_size:
+        values: [8, 16, 32]  # Varying batch size for hyperparameter tuning
+
+    devices:
+        value: 1  # Fixed parameter

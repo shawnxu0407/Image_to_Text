@@ -25,6 +25,10 @@ DL_DATA_DIRNAME = metadata_iam.DL_DATA_DIRNAME
 mapping = metadata_iam_paragraphs.MAPPING
 inverse_mapping = {v: k for k, v in enumerate(mapping)}
 
+input_dims=metadata_iam_paragraphs.DIMS
+output_dims=metadata_iam_paragraphs.OUTPUT_DIMS
+
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Generate training dataset for ResNet-Transformer.")
@@ -63,11 +67,11 @@ def save_images_and_labels(crops: Sequence[Image.Image], labels: Sequence[str], 
 
 def load_processed_crops_and_labels(split: str, data_dirname: Path):
     """Load line crops and labels for given split from processed directory."""
-
-    crop_filenames = sorted((data_dirname / split).glob("*.png"), key=lambda filename: int(Path(filename).stem))
+    data_dirname = Path(data_dirname)
+    crop_filenames = sorted((data_dirname).glob("*.png"), key=lambda filename: int(Path(filename).stem))
     crops = [util.read_image_pil(filename, grayscale=True) for filename in crop_filenames]
 
-    with open(data_dirname / split / "_labels.json") as file:
+    with open(data_dirname / "_labels.json") as file:
         labels = json.load(file)
     assert len(crops) == len(labels)
     return crops, labels
@@ -101,6 +105,18 @@ def save_argument_data_as_tensors(argument_data: Sequence[Tuple[torch.Tensor, to
     # Save all tensors in a single .pt file
     torch.save(image_tensors, save_dir /"images.pt")
     torch.save(target_tensors, save_dir /"labels.pt")
+
+
+
+def extract_images_and_labels(argument_data):
+    image_tensors = []
+    target_tensors = []
+
+    for image_tensor, target_tensor in argument_data:
+        image_tensors.append(image_tensor.cpu())  # Ensure CPU storage
+        target_tensors.append(target_tensor.cpu())
+
+    return image_tensors, target_tensors
 
 
 
