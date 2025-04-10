@@ -1,3 +1,12 @@
+import os
+import sys
+new_directory = "D:/RL_Finance/Image_to_Text"
+sys.path.append(new_directory)
+os.chdir(new_directory)
+
+
+
+
 import argparse
 from pathlib import Path
 import numpy as np

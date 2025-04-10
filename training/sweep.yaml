@@ -5,21 +5,23 @@ command:
     - ${interpreter}
     - ${program}
     - "--wandb"
+    - "--log_every_n_steps"
+    - "10"
     - "--max_epochs"
-    - "5"   # You can change this later to be a hyperparameter in the sweep
+    - "5"
     - ${args}  # Sweep parameters will be passed here
 
 # Define the sweep method and optimization goal
-method: grid  # Can also be "grid" or "bayes"
-
+method: random  # Can also be "grid" or "bayes"
 metric:
-    name: train/loss  # Adjust this to the metric you want to optimize for
+    name: train/loss
     goal: minimize
 
-# Define hyperparameters to search
 parameters:  
+    # LineCNN hyperparameters
     batch_size:
-        values: [8, 16, 32]  # Varying batch size for hyperparameter tuning
+        values: [8, 16, 32]
 
+    # Fixed parameters
     devices:
-        value: 1  # Fixed parameter
+        value: 1
