@@ -1,22 +1,32 @@
-# ResNetTransformer UI
+# 🧠 ResNetTransformer Gradio UI
 
-A simple and interactive Gradio-based interface to test predictions from the fine-tuned ResNetTransformer model on argumented dataset.
+An interactive interface built with Gradio for the fine-tuned ResNetTransformer model. Designed for image translation tasks using a combination of convolutional and transformer-based features.
+
+---
+
+## ✨ UI Preview
+
+Here’s a quick look at the interface in action:
+
+![Gradio UI Demo](UI_demo.gif)
+
+---
 
 ## 🚀 Features
 
-- Upload images
-- Real-time prediction display
-- Example images provided
-- Lightweight and responsive interface
+- 🔍 Upload images for prediction
+- ⚡ Real-time inference using ResNetTransformer backend
+- 🧩 Modular and easy to extend
+- 🌐 Gradio-powered web interface
 
-## 🖼️ Demo UI
+---
 
-![Gradio UI](images/ui_screenshot.png)
-
-## 🛠️ How to Run Locally
+## 📦 Installation & Setup
 
 ```bash
-git clone https://github.com/yourusername/yourrepo.git
-cd yourrepo
-pip install -r requirements.txt
-python app.py
+# Clone the repository
+git clone https://github.com/shawnxu0407/Image_to_Text.git
+cd your_working_dir
+
+# Launch the Gradio interface
+python gradio_UI/app.py
