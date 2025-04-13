@@ -1,7 +1,7 @@
 ## Full-Paragraph Optical Character Recognition
 
 For more on how this application works,
-[check out the GitHub repo](https://github.com/full-stack-deep-learning/fsdl-text-recognizer-2022).
+[check out the GitHub repo](https://github.com/shawnxu0407/Image_to_Text/tree/main).
 
 <!-- logging content below -->
 ### Flagging
