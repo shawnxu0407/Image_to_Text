@@ -1,5 +1,6 @@
 # 🧠 ResNetTransformer Gradio UI
 
+This is my Learning Process including data collection, data argumentation, Model Fine-tune integrating with lighning and W&B for experiment design, local deployment and now I am working on cloud deployment using AWS ECR and lambda.
 An interactive interface built with Gradio for the fine-tuned ResNetTransformer model. Designed for image translation tasks using a combination of convolutional and transformer-based features.
 
 ---
