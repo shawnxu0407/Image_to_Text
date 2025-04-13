@@ -27,7 +27,7 @@ LOG_DIR = Path("training") / "logs"
 STAGED_MODEL_TYPE = "prod-ready"  # we can choose the name of this type, and ideally it's different from checkpoints
 STAGED_MODEL_FILENAME = "model.pt"  # standard nomenclature; pytorch_model.bin is also used
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[0]
 
 from text_recognizer.data.create_save_argument_dataset import (inverse_mapping,
                                                                mapping)
@@ -50,7 +50,7 @@ CKPT_AT = "xiangyexu-university-of-waterloo/image_to_text/model-694o33pb:best"
 
 
 def main(args):
-    prod_staging_directory = PROD_STAGING_ROOT / args.staged_model_name
+    prod_staging_directory = PROD_STAGING_ROOT
     prod_staging_directory.mkdir(exist_ok=True, parents=True)
     checkpoint_path = Path(prod_staging_directory) / "model.ckpt"
     torch_script_path = Path(prod_staging_directory) / 'model.pt'
